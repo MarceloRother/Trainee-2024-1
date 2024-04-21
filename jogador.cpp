@@ -53,16 +53,17 @@ void Jogador::andarEsquerda() {
     this->setPosX((this->getPosX()) - 1);
 }
 
-void Jogador::pegarCaixa(int x, int y) {
+bool Jogador::pegarCaixa(int x, int y) {
     if((getPosX() == x) && (getPosY() == y)){
         setCarregandoCaixa(true);
+        return true;
     }
     else{
         cout << "Local incorreto!" << endl;
     }
 }
 
-void Jogador::deixarCaixa(int x, int y) {
+bool Jogador::deixarCaixa(int x, int y) {
     if((getPosX() == x) && (getPosY() == y)){
         setCarregandoCaixa(false);
     }

@@ -27,8 +27,8 @@ public:
     void andarBaixo();
 
     // Movimentos envolvendo a caixa
-    void pegarCaixa(int x, int y); // x = caixa.posX / y = caixa.posY
-    void deixarCaixa(int x, int y);// x = caixa.posXEntrega / y = caixa.posYEntrega
+    bool pegarCaixa(int x, int y); // x = caixa.posX / y = caixa.posY
+    bool deixarCaixa(int x, int y);// x = caixa.posXEntrega / y = caixa.posYEntrega
 
     Jogador(int x, int y);
 

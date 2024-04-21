@@ -11,10 +11,21 @@
 
 class Jogo {
 private:
-    Mapa mapa;
-    Jogador jogador;
-    Caixa caixa;
+    Mapa mapa = Mapa(new char[20][20]);
+    Jogador jogador = Jogador(0,0);
+    Caixa caixa = Caixa(0, 0, 0, 0);
+    enum class Estado {
+        Menu,
+        JogandoSemCaixa,
+        JogandoComCaixa,
+        Final
+    };
+    Estado estadoAtual;
 public:
+    Estado getEstado();
+    void setEstado(Estado estado);
+    void printMenu();
+    void inicio();
     Jogo(Mapa mapa);
 };
 
