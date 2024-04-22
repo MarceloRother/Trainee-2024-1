@@ -12,12 +12,29 @@
 using namespace std;
 
 int main(){
-    // Inicializando objetos
+    // Criando mapa
     char teste[20][20];
+    for(int i = 0; i < 20; i++){
+        for(int j = 0; j < 20; j++){
+            if(i == 0 && j == 0){
+                teste[i][j] = '&';
+            }
+            else if(i == 6 && j == 18){
+                teste[i][j] = '@';
+            }
+            else if(i == 19 && j == 0){
+                teste[i][j] = 'X';
+            }
+            else{
+                teste[i][j] = '+';
+            }
+        }
+    }
+    // Inicializando objeto
     Mapa mapa = Mapa(teste);
 
+    // Começando jogo
     Jogo jogo = Jogo(mapa);
-
 
     return 0;
 }

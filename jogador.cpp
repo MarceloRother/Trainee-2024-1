@@ -52,7 +52,6 @@ void Jogador::andarDireita() {
 void Jogador::andarEsquerda() {
     this->setPosX((this->getPosX()) - 1);
 }
-
 bool Jogador::pegarCaixa(int x, int y) {
     if((getPosX() == x) && (getPosY() == y)){
         setCarregandoCaixa(true);

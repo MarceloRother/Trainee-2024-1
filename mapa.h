@@ -13,7 +13,7 @@ class Mapa {
 private:
     char labirinto[20][20];
 public:
-    void printLabirinto(Jogador jogador, Caixa caixa);
+    void printLabirinto();
     char getPosLabirinto(int x, int y);
     Mapa(char mapa[20][20]);
 };

@@ -42,12 +42,12 @@ void Jogo::setEstado(Jogo::Estado estado) {
 
 void Jogo::printMenu() {
     cout << "---------- MENU ----------" << endl;
-    mapa.printLabirinto(jogador, caixa);
+    mapa.printLabirinto();
     cout << "1- Começar \n2- Sair \n";
 }
 
 void Jogo::inicio() {
-    while(!(estadoAtual == Estado::Final)){
+    while(estadoAtual != Estado::Final){
         if(estadoAtual == Estado::Menu){
             int user;
             printMenu();
@@ -61,7 +61,6 @@ void Jogo::inicio() {
         }
         else if(estadoAtual == Estado::JogandoSemCaixa){
             if(jogador.pegarCaixa(caixa.getPosX(), caixa.getPosY())){
-                jogador.pegarCaixa(caixa.getPosX(), caixa.getPosY());
                 this->estadoAtual = Estado::JogandoComCaixa;
                 continue;
             }
@@ -76,16 +75,34 @@ void Jogo::inicio() {
                 if(jogador.getPosY() < caixa.getPosY()){
                     jogador.andarCima();
                 }
-                else if(jogador.getPosY() > caixa.getPosY(){
-                    jogador.get
+                else if(jogador.getPosY() > caixa.getPosY()){
+                    jogador.andarBaixo();
                 }
             }
         }
         else{
-            cout << "---------- Final ----------" << endl;
-            cout << "Feito por: \n- Barcelos Rotas" << endl;
-            return;
-        }
+            if(jogador.deixarCaixa(caixa.getPosX(), caixa.getPosY())){
+                this->estadoAtual = Estado::Final;
+                continue;
+            }
+            else{
+                if(jogador.getPosX() < caixa.getPosX()){
+                    jogador.andarDireita();
+                }
+                else if(jogador.getPosX() > caixa.getPosX()){
+                    jogador.andarEsquerda();
+                }
 
+                if(jogador.getPosY() < caixa.getPosY()){
+                    jogador.andarCima();
+                }
+                else if(jogador.getPosY() > caixa.getPosY()){
+                    jogador.andarBaixo();
+                }
+            }
+        }
     }
+    cout << "---------- Final ----------" << endl;
+    cout << "Feito por: \n- Barcelos Rotas" << endl;
+    return;
 }
